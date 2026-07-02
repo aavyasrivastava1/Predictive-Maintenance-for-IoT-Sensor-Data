@@ -1,0 +1,54 @@
+project:
+  name: predictive-maintenance-iot
+  random_seed: 42
+
+data:
+  n_machines: 50
+  samples_per_machine: 2000
+  sensors: [temperature, vibration, pressure]
+  failure_rate: 0.08
+  raw_dir: data/raw
+  processed_dir: data/processed
+
+features:
+  window_size: 50
+  forecast_horizon: 10
+  test_split: 0.2
+  val_split: 0.1
+
+models:
+  lstm:
+    units: [64, 32]
+    dropout: 0.2
+    epochs: 30
+    batch_size: 64
+    learning_rate: 0.001
+  gru:
+    units: [64, 32]
+    dropout: 0.2
+    epochs: 30
+    batch_size: 64
+    learning_rate: 0.001
+  autoencoder:
+    encoding_dim: 16
+    epochs: 25
+    batch_size: 128
+    learning_rate: 0.001
+    anomaly_threshold_percentile: 95
+
+anomaly:
+  rolling_window: 30
+  z_score_threshold: 3.0
+
+azure:
+  subscription_id: "${AZURE_SUBSCRIPTION_ID}"
+  resource_group: "rg-predictive-maintenance"
+  workspace_name: "mlw-predictive-maintenance"
+  compute_cluster: "cpu-cluster"
+  environment_name: "pred-maint-env"
+  experiment_name: "predictive-maintenance"
+
+paths:
+  models_dir: models
+  artifacts_dir: artifacts
+  logs_dir: logs

@@ -1,0 +1,25 @@
+# Core ML / Deep Learning
+tensorflow>=2.15.0,<3.0.0
+numpy>=1.24.0,<2.0.0
+pandas>=2.0.0
+scikit-learn>=1.3.0
+joblib>=1.3.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.13.0
+
+# Configuration
+pyyaml>=6.0
+
+# Azure MLOps
+azure-ai-ml>=1.14.0
+azure-identity>=1.15.0
+azureml-core>=1.56.0
+
+# Jupyter (exploration)
+jupyter>=1.0.0
+ipykernel>=6.25.0
+
+# Testing
+pytest>=7.4.0

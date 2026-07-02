@@ -147,9 +147,19 @@ activemq-data/
 # SageMath parsed files
 *.sage.py
 
+# Project artifacts
+data/raw/
+data/processed/
+models/*.keras
+models/*.joblib
+models/*.json
+artifacts/*
+!artifacts/.gitkeep
+logs/*
+!logs/.gitkeep
+
 # Environments
 .env
-.envrc
 .venv
 env/
 venv/
